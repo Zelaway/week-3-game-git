@@ -43,6 +43,7 @@
 				console.log(alreadyGuessed) // 
 					if(userGuess == secretLetter){
 						wins ++;
+						alert("You Won!");
 						console.log("you won!", wins);
 						game();
 					}else if((userGuess != secretLetter) && (guessesLeft >0)){
