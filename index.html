@@ -27,7 +27,6 @@
 
 		function game (){
 
-			alreadyGuessed.length=0;
 
 
 			var randomLetter = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]; // letters users will pick
@@ -36,7 +35,7 @@
 				console.log(secretLetter); //letters the computer will generate
 
 			document.onkeyup=function(event){
-				var userGuess= String.fromCharCode(event.keyCode).toLowerCase(); //creating a variable userGuess
+				var userGuess= String.fromCharCode(event.keyCode).toLowerCase(); 
 
 
 				alreadyGuessed.push(userGuess);
@@ -49,7 +48,7 @@
 					}else if((userGuess != secretLetter) && (guessesLeft >0)){
 						guessesLeft--;
 						alreadyGuessed.push(userGuess);
-						console.log("Already Guessed", guessesLeft);
+						//console.log("Already Guessed", guessesLeft);
 						game();
 					}else{
 						alert("You Lost");
@@ -59,7 +58,7 @@
 				var message = "<p> Wins: " + wins + "</p>" +
 							  "<p> Losses: " + losses + "</p>" +
 							  "<p> Guesses Left: " + guessesLeft + "</p>"+
-							  "<p> Your Guesses So Far: " + userGuess + "</p>";
+							  "<p> Your Guesses So Far: " + alreadyGuessed + "</p>";
 				document.querySelector("#game").innerHTML=message;
 
 			}
