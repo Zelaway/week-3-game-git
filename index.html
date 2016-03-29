@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang = "en">
 <head>
@@ -15,58 +16,6 @@
 		<p>Guesses Left: 10</p>
 		<p>Your Guesses So Far: </p>		
 	</div>
-
-	<script type="text/javascript">
-		alert("Welcome to the Psychic Game");
-		alert("This Game will See if the Computer Knows which letter you Will Select.  You'll have 10 tries.  If the computer guess 1 out of the 10 letters you choose in your 10 tries.  You Lose.  If the computer cannot Guess the any of the letter you choose out of 10 tries.  You win.  It will keep score.");
-		alert("READY TO PLAY? Press OK---Then select any letter as your first guess");
-		var wins = 0;
-		var losses = 0;
-		var guessesLeft = 9;
-		var alreadyGuessed =[];
-
-		function game (){
-
-
-
-			var randomLetter = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]; // letters users will pick
-
-			var secretLetter = randomLetter[Math.floor(Math.random()*randomLetter.length)];
-				console.log(secretLetter); //letters the computer will generate
-
-			document.onkeyup=function(event){
-				var userGuess= String.fromCharCode(event.keyCode).toLowerCase(); 
-
-
-				alreadyGuessed.push(userGuess);
-				console.log(alreadyGuessed) // 
-					if(userGuess == secretLetter){
-						wins ++;
-						alert("You Won!");
-						console.log("you won!", wins);
-						game();
-					}else if((userGuess != secretLetter) && (guessesLeft >0)){
-						guessesLeft--;
-						alreadyGuessed.push(userGuess);
-						//console.log("Already Guessed", guessesLeft);
-						game();
-					}else{
-						alert("You Lost");
-						losses++;
-						game();
-					}
-				var message = "<p> Wins: " + wins + "</p>" +
-							  "<p> Losses: " + losses + "</p>" +
-							  "<p> Guesses Left: " + guessesLeft + "</p>"+
-							  "<p> Your Guesses So Far: " + alreadyGuessed + "</p>";
-				document.querySelector("#game").innerHTML=message;
-
-			}
-		
-
-		}
-		game();
-	</script>
-
+	<script src="assets/javascript/games.js"></script>
 </body>
 </html>
